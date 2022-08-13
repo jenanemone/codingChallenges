@@ -32,6 +32,15 @@ var runningSum = function(nums) {
     nums.forEach(x => sums.push(sum += x))
     return sums
 };
+
+var runningSum = function(nums) {
+    const res = []
+    nums.reduce((a, c) => {
+        res.push(a + c)
+        return a + c
+    }, 0)
+    return res
+};
   
 /* SAMPLE TESTS:::
 [1,2,3,4] 
