@@ -34,3 +34,6 @@ Constraints:
   return duos.length > 0
 };
   
+function containsDuplicate(nums) {
+    return (new Set(nums).size) !== nums.length
+  };
