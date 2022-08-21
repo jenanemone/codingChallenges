@@ -50,3 +50,15 @@ strs[i] consists of only lowercase English letters.
     return "";
 };
 
+// someone else's faster code
+var longestCommonPrefix = function (strs) {
+    let possible = strs[0];
+  
+    for (i = 1; i < strs.length; i++) {
+  
+      while (strs[i].indexOf(possible) !== 0) {
+        possible = possible.slice(0, -1);
+      }
+    }
+    return possible;
+  };
