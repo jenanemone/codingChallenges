@@ -45,5 +45,47 @@ str = str.slice(index);
 console.log("remove first sentence", str)
 
 str = str.split("v");
-console.log(str);
+
+// SOLUTION
+
+function detangle(s) {
+    // find first ind of c
+    // slice from that first ind + 1
+    let c = s.indexOf("c");
+    s = s.slice(c + 1);
+    
+    // find Eek! and remove it
+    // have a temp variable to build substrings
+    // loop through and build and find temp, remove
+    let tail = "";
+    let a = s.split("");
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] == "E" && a[i + 1] == "e" && a[i + 2] == "k" && a[i + 3] == "!") {
+            tail = a.slice(i + 4)
+            a = a.slice(0, i).concat(tail);
+            i -= 4;
+        }
+    }
+
+    //console.log(a.join(""))
+    // reverse it
+    s = a.reverse().join("")
+    //console.log(s)
+
+    
+    // split up on lowercase 'v'
+    s = s.split("v");
+    // => Split this string up on *lowercase* 'V'. The first character in each substring besides this first one is what you need to remember for tomorrow's task.
+
+    //remove instructions
+    s = s.slice(1)
+
+    // take first letter
+    let task = ""
+    s.forEach(word => task += word[0])
+    
+    return task
+}
+
+detangle(mess);
 
