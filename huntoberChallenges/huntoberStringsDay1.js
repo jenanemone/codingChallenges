@@ -68,6 +68,28 @@ const charSwap = (str) => {
     return str;
 }
 
+// SOLUTION IS O(n) because it must iterate the string s one time
+function fixFunction(s) {
+    // apply keys in sequence; string or array doesn't matter here
+    const arr = ["O", "I", "Z", "E", "h", "S", "G", "L", "B", "q"]
+    const keys = "OIZEhSGLBq"
+    // in order for anything to work, it must be an array
+    let a = s.split("")
+    for (let i = 0; i < a.length; i++) {
+        let char = a[i];
+        // if it's a letter and shouldn't be...
+        if (arr.includes(char)) {
+            let ind = keys.indexOf(char)
+            a[i] = ind
+        }
+        // if it's a number and shouldn't be
+        else if (char.charCodeAt() >= 48 && char.charCodeAt() <= 57) {
+            a[i] = keys[char]
+        }
+    }
+    return a.join("");
+}
+
 
 /* SAMPLE TESTS:::
 
