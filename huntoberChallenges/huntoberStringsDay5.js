@@ -45,25 +45,23 @@ let mewviesStr = "The Pawshank Redemption,Caturday Night Live,Only Meworders in 
 // must have even number of proper lowercase letters
 // must not contain capital S
 
-function checkPuns(mewvies) {
-    mewvies = str.split(",");
-    console.log(mewvies.length)
-    
-    for (let i = 0; i < mewvies.length; i++) {
-        let title = mewvies[i];
+function checkPuns(str) {
+    allMewvies = str.split(",");
+    console.log(allMewvies.length)
+    let mewvies = [] // container for final 
+
+    for (let i = 0; i < allMewvies.length; i++) {
+        let title = allMewvies[i];
         title = title.trim();
         let lc = title.toLowerCase();
-        if (lc.includes("dog") || lc.includes("bone") || lc.includes("bark")) {
-            mewvies[i] = "zzz"
+        if (lc.includes("dog") || lc.includes("bone") || lc.includes("bark") || title.length % 5 == 0 || !(title[0].charCodeAt() + title[title.length - 1].charCodeAt() % 2) || title[Math.ceil(title.length / 2) + 1] === "e" || title.includes("S")) {
+            continue;
         }
-        if (!(title.length % 5)) {
-            mewvies[i] = "zzz";
-        }
-        if ( !(title[0].charCodeAt() + title[title.length - 1].charCodeAt() % 2) ) {
-            mewvies[i] = "zzz";
+        else {
+            mewvies.push(title);
         }
     }
-    console.log(mewvies.length);
+    return mewvies;
 }
 console.log(checkPuns(mewviesStr))
 
