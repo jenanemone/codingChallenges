@@ -46,8 +46,7 @@ let mewviesStr = "The Pawshank Redemption,Caturday Night Live,Only Meworders in 
 // must not contain capital S
 
 function checkPuns(str) {
-    allMewvies = str.split(",");
-    console.log(allMewvies.length)
+    let allMewvies = str.split(",");
     let mewvies = [] // container for final 
 
     for (let i = 0; i < allMewvies.length; i++) {
@@ -57,11 +56,29 @@ function checkPuns(str) {
         if (lc.includes("dog") || lc.includes("bone") || lc.includes("bark") || title.length % 5 == 0 || !(title[0].charCodeAt() + title[title.length - 1].charCodeAt() % 2) || title[Math.ceil(title.length / 2) + 1] === "e" || title.includes("S")) {
             continue;
         }
+        if (checkCaps(title)) {
+            continue;
+        }
         else {
             mewvies.push(title);
         }
     }
     return mewvies;
 }
+
+function checkCaps(s) {
+    let caps = 0;
+    let lowers = 0;
+    s.split("").forEach(char => {
+        if (char.charCodeAt() >= 65 && char.charCodeAt() <= 90) {
+            caps++;
+        }
+        if (char.charCodeAt() >= 97 && char.charCodeAt() <= 122) {
+            lowers++;
+        }
+    })
+    return (caps < 2 || (lowers % 2));
+}
+
 console.log(checkPuns(mewviesStr))
 
