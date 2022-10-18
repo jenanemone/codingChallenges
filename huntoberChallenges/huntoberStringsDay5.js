@@ -81,4 +81,5 @@ function checkCaps(s) {
 }
 
 console.log(checkPuns(mewviesStr))
+console.log(checkPuns(mewviesStr.length))
 

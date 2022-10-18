@@ -1,4 +1,4 @@
-/* PROBLEM STATEMENT:::  
+/* PROBLEM STATEMENT:::  Huntober 2022 Strings Day 6
 
 https://blog.barbaralaw.me/huntober-2022-day-6
 
