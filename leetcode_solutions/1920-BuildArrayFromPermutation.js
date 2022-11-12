@@ -42,3 +42,12 @@ The elements in nums are distinct.
  var buildArray = function(nums) {
   return nums.map((x,i) => nums[nums[i]])
 };
+
+// Even cleaner
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+ var buildArray = function(nums) {
+    return nums.map(num => nums[num])
+};
